@@ -51,14 +51,14 @@
                     <li>
                         <a href="/home_page/" class="active-menu waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> 爬虫工具 <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                             <li>
+                            <li>
                                 <a href="/home_page/" class="waves-effect waves-dark">搜人<span class="fa arrow"></span></a>
                             </li>
                             <li>
-                                <a href="/ddwr/" class="waves-effect waves-dark">定点挖人<span class="fa arrow"></span></a>
+                                <a href="/ddwr/" class="active-menu waves-effect waves-dark">定点挖人<span class="fa arrow"></span></a>
                             </li>
                             <li>
-                                <a href="/download_working_data/" class="active-menu waves-effect waves-dark">数据下载<span class="fa arrow"></span></a>
+                                <a href="/download_working_data/" class="waves-effect waves-dark">数据下载<span class="fa arrow"></span></a>
                             </li>
                         </ul>
                     </li>
@@ -74,72 +74,36 @@
         <div id="page-wrapper" >
             <div class="header">
                 <h3 class="page-header">
-                     数据下载
+                     定点挖人
                 </h3>
 		    </div>
             <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <h4>选择文件并点击下载</h4>
-                                <ul class="nav nav-tabs" style="width: 50%">
-                                    <li class="active"><a href="#qc" data-toggle="tab">qc</a>
-                                    </li>
-                                    <li class=""><a href="#qa" data-toggle="tab">qa</a>
-                                    </li>
-                                    <li class=""><a href="#company" data-toggle="tab">company</a>
-                                    </li>
-                                </ul>
-                            <br>
-                                <form action="/download_working_data/" method="post">{% csrf_token %}
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade active in" id="qc">
-                                            <div class="form-group">
-                                                <label style="width: 50%">
-                                                    <select name="beta_tag" size="8" class="form-control">
-                                                        {% for foo in tag_apk_beta %}
-                                                            <option>{{ foo }}</option>
-                                                        {% endfor %}
-                                                    </select>
-                                                </label>
-                                                <br>
-                                                <input type="submit" name="submit" class="waves-effect waves-light btn" value="下载qc数据" />
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="qa">
-                                            <div class="form-group">
-                                                <label style="width: 50%">
-                                                    <select  name="offical_tag" size="8" class="form-control">
-                                                        {% for foo in tag_apk_offical %}
-                                                            <option>{{ foo }}</option>
-                                                        {% endfor %}
-                                                    </select>
-                                                </label>
-                                                <br>
-                                                <input type="submit" name="submit" class="waves-effect waves-light btn" value="下载qa数据" />
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="company">
-                                            <div class="form-group">
-                                                <label style="width: 50%">
-                                                    <select  name="offical_tag" size="8" class="form-control">
-                                                        {% for foo in tag_apk_offical %}
-                                                            <option>{{ foo }}</option>
-                                                        {% endfor %}
-                                                    </select>
-                                                </label>
-                                                <br>
-                                                <input type="submit" name="submit" class="waves-effect waves-light btn" value="下载company数据" />
-                                            </div>
-                                        </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <form action="/ddwr/" method="post">{% csrf_token %}
+                                <div class="tab-pane" id="tab_zl_ddwr">
+                                    <h4>一、请输入要搜索的公司的名称，用英文分号隔开，例如：广东一方;江阴天江</h4>
+                                    <div class="input-field col s12">
+                                      <input id="name1" type="text" class="validate" name="input_name" style="width:40%" required="required">
+                                      <label for="name1" class="">输入公司名称</label>
                                     </div>
-                                </form>
-                                <div>
+                                    <h4>二、要抓取多少条数据？（只限纯数字）</h4>
+                                    <div class="input-field col s12">
+                                      <input id="num2" type="text" class="validate" name="input_num" style="width:10%" required="required" onKeyUp="value=value.replace(/[^\d]/g,'')" value="{{ input_value }}">
+                                      <label for="num2" class="">输入要抓取的数量</label>
+                                    </div>
+                                    <h4>三、输入验证码，需手动登录后用浏览器查看然后输入到这里</h4>
+                                    <div class="input-field col s12">
+                                      <input id="code2" type="text" class="validate" name="input_code" style="width:40%" required="required">
+                                      <label for="code2" class="">输入验证码</label>
+                                    </div>
+                                    <input type="submit" name="submit" class="waves-effect waves-light btn" value="运行" />
                                 </div>
+                            </form>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>

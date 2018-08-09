@@ -25,4 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home_page/', views.home_page),
     path('download_working_data/', views.working_data_download),
+    path('ddwr/', views.ddwr),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

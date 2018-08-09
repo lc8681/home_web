@@ -52,7 +52,10 @@
                         <a href="/home_page/" class="active-menu waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> 爬虫工具 <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/home_page/" class="active-menu waves-effect waves-dark">运行工具<span class="fa arrow"></span></a>
+                                <a href="/home_page/" class="active-menu waves-effect waves-dark">搜人<span class="fa arrow"></span></a>
+                            </li>
+                            <li>
+                                <a href="/ddwr/" class="waves-effect waves-dark">定点挖人<span class="fa arrow"></span></a>
                             </li>
                             <li>
                                 <a href="/download_working_data/" class="waves-effect waves-dark">数据下载<span class="fa arrow"></span></a>
@@ -69,22 +72,35 @@
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
+            <div class="header">
+                <h3 class="page-header">
+                     搜人
+                </h3>
+		    </div>
             <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <form action="" method="post">{% csrf_token %}
-                                <h4>一、选择搜索条件(单选)：</h4>
-                                <input class="with-gap" name="qc_group" type="radio" id="qc" checked="checked"/>
-                                <label for="qc" style="color: red;">qc（大专及以上、北京、药学/药物制剂/制药工程/中药学/中药资源与开发、20-30岁、性别不限、期望月薪4000-8000、近3个月更新简历）</label>
-                                <input class="with-gap" name="qc_group" type="radio" id="qa" />
-                                <label for="qa" style="color: red;">qa（本科及以上、北京、中药学、20-30岁、性别男、期望月薪4000-8000、近3个月更新简历）</label>
-                                <h4>二、要抓取多少条数据？（只限纯数字）</h4>
-                                <input type="text"  name="input_v" style="width:10%" required="required" class="form-control" onKeyUp="value=value.replace(/[^\d]/g,'')" value="{{ input_value }}" placeholder="输入要抓取的数量">
-                                <h4>三、输入验证码，需手动登录后用浏览器查看然后输入到这里</h4>
-                                <input type="text"  name="input_v" style="width:40%" required="required" class="form-control" placeholder="输入验证码">
-                                <input type="submit" name="submit" class="waves-effect waves-light btn" value="运行" />
+                            <form action="/home_page/" method="post">{% csrf_token %}
+                                <div class="tab-pane fade active in" id="tab_zl">
+                                    <h4>一、选择搜索条件(单选)：</h4>
+                                    <input class="with-gap" name="radio_group" type="radio" id="qc" checked="checked" value="qc"/>
+                                    <label for="qc" style="color: red;">qc（大专及以上、北京、药学/药物制剂/制药工程/中药学/中药资源与开发、20-30岁、性别不限、期望月薪4000-8000、近3个月更新简历）</label>
+                                    <input class="with-gap" name="radio_group" type="radio" id="qa" value="qa"/>
+                                    <label for="qa" style="color: red;">qa（本科及以上、北京、中药学、20-30岁、性别男、期望月薪4000-8000、近3个月更新简历）</label>
+                                    <h4>二、要抓取多少条数据？（只限纯数字）</h4>
+                                    <div class="input-field col s12">
+                                      <input id="num1" type="text" class="validate" name="input_num" style="width:10%" required="required" onKeyUp="value=value.replace(/[^\d]/g,'')" value="{{ input_value }}">
+                                      <label for="num1" class="">输入要抓取的数量</label>
+                                    </div>
+                                    <h4>三、输入验证码，需手动登录后用浏览器查看然后输入到这里</h4>
+                                    <div class="input-field col s12">
+                                      <input id="code1" type="text" class="validate" name="input_code" style="width:40%" required="required">
+                                      <label for="code1" class="">输入验证码</label>
+                                    </div>
+                                    <input type="submit" name="submit" class="waves-effect waves-light btn" value="运行" />
+                                </div>
                             </form>
                         </div>
                     </div>
