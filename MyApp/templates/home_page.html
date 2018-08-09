@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>You Smile I Smile</title>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="../static/assets/materialize/css/materialize.min.css" media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="../static/assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="../static/assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="../static/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="../static/assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="../static/assets/js/Lightweight-Chart/cssCharts.css">
+</head>
+<style>
+    body{
+        overflow-x: hidden;
+        overflow-y: hidden;
+        }
+</style>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand waves-effect waves-dark" href="home_page.html"><i class="large material-icons">track_changes</i> <strong>Home</strong></a>
+
+		<div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+            </div>
+        </nav>
+		<!-- Dropdown Structure -->
+	   <!--/. NAV TOP  -->
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="/home_page/" class="active-menu waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> 爬虫工具 <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/home_page/" class="active-menu waves-effect waves-dark">运行工具<span class="fa arrow"></span></a>
+                            </li>
+                            <li>
+                                <a href="/download_working_data/" class="waves-effect waves-dark">数据下载<span class="fa arrow"></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="" class="waves-effect waves-dark"><i class="fa fa-fw fa-file"></i>未开放</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <form action="" method="post">{% csrf_token %}
+                                <h4>一、选择搜索条件(单选)：</h4>
+                                <input class="with-gap" name="qc_group" type="radio" id="qc" checked="checked"/>
+                                <label for="qc" style="color: red;">qc（大专及以上、北京、药学/药物制剂/制药工程/中药学/中药资源与开发、20-30岁、性别不限、期望月薪4000-8000、近3个月更新简历）</label>
+                                <input class="with-gap" name="qc_group" type="radio" id="qa" />
+                                <label for="qa" style="color: red;">qa（本科及以上、北京、中药学、20-30岁、性别男、期望月薪4000-8000、近3个月更新简历）</label>
+                                <h4>二、要抓取多少条数据？（只限纯数字）</h4>
+                                <input type="text"  name="input_v" style="width:10%" required="required" class="form-control" onKeyUp="value=value.replace(/[^\d]/g,'')" value="{{ input_value }}" placeholder="输入要抓取的数量">
+                                <h4>三、输入验证码，需手动登录后用浏览器查看然后输入到这里</h4>
+                                <input type="text"  name="input_v" style="width:40%" required="required" class="form-control" placeholder="输入验证码">
+                                <input type="submit" name="submit" class="waves-effect waves-light btn" value="运行" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+         <!-- /. PAGE WRAPPER  -->
+     <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+
+
+    <!-- jQuery Js -->
+    <script src="../static/assets/js/jquery-1.10.2.js">
+
+    </script>
+
+	<!-- Bootstrap Js -->
+    <script src="../static/assets/js/bootstrap.min.js"></script>
+
+	<script src="../static/assets/materialize/js/materialize.min.js"></script>
+
+    <!-- Metis Menu Js -->
+    <script src="../static/assets/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="../static/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="../static/assets/js/morris/morris.js"></script>
+
+
+	<script src="../static/assets/js/easypiechart.js"></script>
+	<script src="../static/assets/js/easypiechart-data.js"></script>
+
+	 <script src="../static/assets/js/Lightweight-Chart/jquery.chart.js"></script>
+	 <!-- DATA TABLE SCRIPTS -->
+    <script src="../static/assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="../static/assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+    <!-- Custom Js -->
+    <script src="../static/assets/js/custom-scripts.js"></script>
+
+
+</body>
+
+</html>
