@@ -144,9 +144,9 @@ def search_result(start_page, at_code, choose):
 
 if __name__ == '__main__':
     if argv[1] == str(1):
-        filename = time.strftime('[qc]' + "%Y-%m-%d %H-%M-%S", time.localtime()) + '.csv'
+        filename = '[qc-' + str(argv[2]) + '人]' + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + '.csv'
     elif argv[1] == str(2):
-        filename = time.strftime('[qa]' + "%Y-%m-%d %H-%M-%S", time.localtime()) + '.csv'
+        filename = '[qc-' + str(argv[2]) + '人]' + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + '.csv'
     out = open(filename, 'a+', newline='')
     csv_write = csv.writer(out, dialect='excel')
     csv_header = ['更新时间', '姓名', '工作年限', '年龄', '现居住地', '期望工作地点', '学历', '毕业学校', '专业', '期望月薪', '目前状况',
