@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>爬虫工具平台</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../static/js/modernizr.custom.53451.js"></script>
+</head>
+<body>
+	<br><br><br><br><br><br>
+	<div class="w3layouts">
+		<div class="signin-agile" style="margin-left: 50%">
+			<h3>登 录</h3>
+			<form action="" method="post">
+				<input type="text" name="username" placeholder="请输入账号" required="" onkeyup="value=value.replace(/[\W]/g,'') "
+                       onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+				<input type="password" name="password" class="password" placeholder="请输入密码" required="">
+                {% if login_false == True %}
+                    <a style="width: 170px; margin-right: 40px">账号或密码错误，请重试</a><br>
+                {% endif %}
+				<div class="singn_in_button">
+					<input type="submit" value="登录">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -16,13 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from MyApp import views
+import login.views
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url('^$', views.home_page),
+    url('^$', login.views.login_page),
     path('admin/', admin.site.urls),
+    path('login/', login.views.login_page),
     path('home_page/', views.home_page),
     path('download_working_data/', views.working_data_download),
     path('ddwr/', views.ddwr),
