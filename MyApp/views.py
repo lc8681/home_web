@@ -1,21 +1,16 @@
 #!/usr/bin/python3
 # encoding:utf-8
 from __future__ import unicode_literals
-
+from MyApp.main import path
 import configparser
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from threading import Thread
 import os
-import csv
 from .crawler.zhaopin_list import search_result
 # from urllib.parse import quote
 import time
 import math
-
-
-path = '/volume1/homes/code/home_web/MyApp/config.ini'
-# path = '/Users/lichen/Documents/PycharmProjects/home_web/MyApp/config.ini'
 
 
 def run_search_person_crawler(in_num):

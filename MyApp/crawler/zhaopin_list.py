@@ -6,7 +6,8 @@ import csv
 from tqdm import tqdm
 from urllib.parse import quote
 import time
-from MyApp.views import path
+from MyApp.main import path
+
 
 def search_result():
     # url
