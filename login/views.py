@@ -8,7 +8,7 @@ from django.contrib.auth.hashers import check_password
 # 登录
 def login_page(request):
     if 'pc_username' in request.COOKIES:
-        return render_to_response('home_page.html')
+        return HttpResponseRedirect('/home_page/')
     else:
         if request.method == 'POST':
             try:
@@ -31,7 +31,7 @@ def login_page(request):
                     return render_to_response('login.html', {'login_false': login_false})
             except:
                 pass
-        return render_to_response('login.html')
+        return HttpResponseRedirect('/home_page/')
 
 # 退出
 # def logout(requset):

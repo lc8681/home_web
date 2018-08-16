@@ -52,7 +52,7 @@ h1{
 .signin-agile,.signup-agileinfo {
     width: 25%;
     float: left;
-    background:#fff;
+    background: #dddddd;
     filter:alpha(opacity:30);
     opacity:0.7;
 	padding:80px;
