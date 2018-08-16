@@ -6,12 +6,12 @@ import csv
 from tqdm import tqdm
 from urllib.parse import quote
 import time
-
+from ..views import path
 
 def search_result():
     # url
     global res, filename, datalist
-    ini_path = '/Users/lichen/Documents/PycharmProjects/home_web/MyApp/config.ini'
+    ini_path = path
     config = configparser.ConfigParser()
     config.read(ini_path)
     start_page = config.get("conf", "start_page")

@@ -14,10 +14,14 @@ import time
 import math
 
 
+path = '/volume1/homes/code/home_web/MyApp/config.ini'
+# path = '/Users/lichen/Documents/PycharmProjects/home_web/MyApp/config.ini'
+
+
 def run_search_person_crawler(in_num):
     try:
         # 646a6bf9d3fb4bd9b1b68ef58b4711e3
-        ini_path = '/Users/lichen/Documents/PycharmProjects/home_web/MyApp/config.ini'
+        ini_path = path
         config = configparser.ConfigParser()
         config.read(ini_path)
         for x in range(0, int(math.ceil(int(in_num)/30))):
@@ -43,7 +47,7 @@ def home_page(request):
             input_num = request.POST['input_num']
             input_code = request.POST['input_code']
             select_radio = request.POST['radio_group']
-            ini_path = '/Users/lichen/Documents/PycharmProjects/home_web/MyApp/config.ini'
+            ini_path = path
             config = configparser.ConfigParser()
             config.read(ini_path)
             config.set("conf", "at_code", str(input_code))
