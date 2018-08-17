@@ -70,15 +70,16 @@ def search_result():
     Login_Data = {}
     Login_Data['at'] = str(at_code)
     if choose == str(1):
-        filename = '/volume1/homes/code/QC/[qc-' + str(person_number) + '人]' + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + '.csv'
+        res = requests.post(url_qc, data_qc, headers, cookies=Login_Data)
+        check_json = json.loads(res.text)
+        datalist = tqdm(check_json['data']['dataList'])
+        filename = '/volume1/homes/code/qc/[qc-' + str(person_number) + '人]' + time.strftime("%Y-%m-%d %H:%M",
+                                                                                             time.localtime()) + '.csv'
         out = open(filename, 'a+', newline='')
         csv_write = csv.writer(out, dialect='excel')
         csv_header = ['更新时间', '姓名', '工作年限', '年龄', '现居住地', '期望工作地点', '学历', '毕业学校', '专业', '期望月薪', '目前状况',
                       '期望从事职业', '最近所在公司', '最近所在公司职位', '最近工作描述', 'id', '链接']
         csv_write.writerow(csv_header)
-        res = requests.post(url_qc, data_qc, headers, cookies=Login_Data)
-        check_json = json.loads(res.text)
-        datalist = tqdm(check_json['data']['dataList'])
         for x in datalist:
             try:
                 username = x['userName']
@@ -149,15 +150,15 @@ def search_result():
             csv_write.writerow(information)
             time.sleep(2)
     elif choose == str(2):
-        filename = '/volume1/homes/code/QA/[qa-' + str(person_number) + '人]' + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + '.csv'
+        res = requests.post(url_qa, data_qa, headers, cookies=Login_Data)
+        check_json = json.loads(res.text)
+        datalist = tqdm(check_json['data']['dataList'])
+        filename = '/volume1/homes/code/qa/[qa-' + str(person_number) + '人]' + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + '.csv'
         out = open(filename, 'a+', newline='')
         csv_write = csv.writer(out, dialect='excel')
         csv_header = ['更新时间', '姓名', '工作年限', '年龄', '现居住地', '期望工作地点', '学历', '毕业学校', '专业', '期望月薪', '目前状况',
                       '期望从事职业', '最近所在公司', '最近所在公司职位', '最近工作描述', 'id', '链接']
         csv_write.writerow(csv_header)
-        res = requests.post(url_qa, data_qa, headers, cookies=Login_Data)
-        check_json = json.loads(res.text)
-        datalist = tqdm(check_json['data']['dataList'])
         for x in datalist:
             try:
                 username = x['userName']

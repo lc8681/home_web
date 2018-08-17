@@ -4,5 +4,5 @@ import requests
 
 
 def wechat_warnning(text, desp):
-    url = 'https://sc.ftqq.com/SCU27405Ta0734d924dc4507ef4dd54d4e32dd9855b12d1de9133c.send?text=' + text + '&desp=' + desp
+    url = "https://pushbear.ftqq.com/sub?sendkey=5193-01ba5463c07c33c916fb6f1118a12369&text=" + text + "&desp=" + desp
     requests.get(url=url)

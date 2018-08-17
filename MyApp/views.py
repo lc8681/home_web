@@ -30,8 +30,8 @@ def run_search_person_crawler(in_num):
         run_time_s = end-start
         run_time_m = float(run_time_s) / 60
         wechat_warnning(text='智联-搜人成功，请前往"数据下载"页面查找报表', desp='用时：' + str(math.ceil(run_time_m)) + '分钟')
-    except Exception as e:
-        wechat_warnning(text='智联-搜人失败，请检查验证码是否正确', desp=str(e))
+    except:
+        wechat_warnning(text='智联-搜人失败，请检查验证码是否正确', desp='智联-搜人失败，请检查验证码是否正确')
 
 
 def run_search_ddwr_crawler(in_num):
@@ -49,8 +49,8 @@ def run_search_ddwr_crawler(in_num):
         run_time_s = end - start
         run_time_m = float(run_time_s) / 60
         wechat_warnning(text='智联定点挖掘成功，请前往"数据下载"页面查找报表', desp='用时：' + str(math.ceil(run_time_m)) + '分钟')
-    except Exception as e:
-        wechat_warnning(text='智联定点挖掘失败，请检查验证码是否正确', desp=str(e))
+    except:
+        wechat_warnning(text='智联定点挖掘失败，请检查验证码是否正确', desp='智联定点挖掘失败，请检查验证码是否正确')
 
 
 def home_page(request):
