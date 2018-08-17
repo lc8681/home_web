@@ -88,7 +88,7 @@
                                     </li>
                                     <li class=""><a href="#qa" data-toggle="tab">qa</a>
                                     </li>
-                                    <li class=""><a href="#company" data-toggle="tab">company</a>
+                                    <li class=""><a href="#company" data-toggle="tab">定点挖掘</a>
                                     </li>
                                 </ul>
                             <br>
@@ -97,8 +97,8 @@
                                         <div class="tab-pane fade active in" id="qc">
                                             <div class="form-group">
                                                 <label style="width: 50%">
-                                                    <select name="beta_tag" size="8" class="form-control">
-                                                        {% for foo in tag_apk_beta %}
+                                                    <select name="qc_files" size="8" class="form-control">
+                                                        {% for foo in qc_files_list %}
                                                             <option>{{ foo }}</option>
                                                         {% endfor %}
                                                     </select>
@@ -110,8 +110,8 @@
                                         <div class="tab-pane fade" id="qa">
                                             <div class="form-group">
                                                 <label style="width: 50%">
-                                                    <select  name="offical_tag" size="8" class="form-control">
-                                                        {% for foo in tag_apk_offical %}
+                                                    <select  name="qa_files" size="8" class="form-control">
+                                                        {% for foo in qa_files_list %}
                                                             <option>{{ foo }}</option>
                                                         {% endfor %}
                                                     </select>
@@ -123,14 +123,14 @@
                                         <div class="tab-pane fade" id="company">
                                             <div class="form-group">
                                                 <label style="width: 50%">
-                                                    <select  name="offical_tag" size="8" class="form-control">
-                                                        {% for foo in tag_apk_offical %}
+                                                    <select  name="ddwj_files" size="8" class="form-control">
+                                                        {% for foo in ddwj_files_list %}
                                                             <option>{{ foo }}</option>
                                                         {% endfor %}
                                                     </select>
                                                 </label>
                                                 <br>
-                                                <input type="submit" name="submit" class="waves-effect waves-light btn" value="下载company数据" />
+                                                <input type="submit" name="submit" class="waves-effect waves-light btn" value='下载《定点挖掘》数据'/>
                                             </div>
                                         </div>
                                     </div>

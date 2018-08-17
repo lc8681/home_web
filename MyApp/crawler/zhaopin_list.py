@@ -70,7 +70,7 @@ def search_result():
     Login_Data = {}
     Login_Data['at'] = str(at_code)
     if choose == str(1):
-        filename = '[qc-' + str(person_number) + '人]' + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + '.csv'
+        filename = '/volume1/homes/code/QC/[qc-' + str(person_number) + '人]' + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + '.csv'
         out = open(filename, 'a+', newline='')
         csv_write = csv.writer(out, dialect='excel')
         csv_header = ['更新时间', '姓名', '工作年限', '年龄', '现居住地', '期望工作地点', '学历', '毕业学校', '专业', '期望月薪', '目前状况',
@@ -147,9 +147,9 @@ def search_result():
             information = [modifyDate, username, workYears, age, city, desireCity, eduLevel, school_schoolName, major,
                            desiredSalary, careerStatus, jobType, companyName, jobName, description, id, resume_url]
             csv_write.writerow(information)
-            time.sleep(3)
+            time.sleep(2)
     elif choose == str(2):
-        filename = '[qa-' + str(person_number) + '人]' + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + '.csv'
+        filename = '/volume1/homes/code/QA/[qa-' + str(person_number) + '人]' + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + '.csv'
         out = open(filename, 'a+', newline='')
         csv_write = csv.writer(out, dialect='excel')
         csv_header = ['更新时间', '姓名', '工作年限', '年龄', '现居住地', '期望工作地点', '学历', '毕业学校', '专业', '期望月薪', '目前状况',
@@ -226,7 +226,7 @@ def search_result():
             information = [modifyDate, username, workYears, age, city, desireCity, eduLevel, school_schoolName, major,
                            desiredSalary, careerStatus, jobType, companyName, jobName, description, id, resume_url]
             csv_write.writerow(information)
-            time.sleep(3)
+            time.sleep(2)
 
 if __name__ == '__main__':
     search_result()
