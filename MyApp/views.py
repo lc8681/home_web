@@ -151,21 +151,21 @@ def working_data_download(request):
             ddwj_files()
             try:
                 select_qc_files = request.POST["qc_files"]
-                qc_files_url = "http://172.31.38.234:8000/android/beta/" + select_qc_files
+                qc_files_url = "http://download.sevenjuzi.top/pachong_files/qc/" + select_qc_files
                 return HttpResponseRedirect(qc_files_url)
             except MultiValueDictKeyError:
                 pass
 
             try:
                 select_qa_files = request.POST["qa_files"]
-                qa_files_url = "http://172.31.38.234:8000/android/offical/" + select_qa_files
+                qa_files_url = "http://download.sevenjuzi.top/pachong_files/qa/" + select_qa_files
                 return HttpResponseRedirect(qa_files_url)
             except MultiValueDictKeyError:
                 pass
 
             try:
                 select_ddwj_files = request.POST["ddwj_files"]
-                ddwj_files_url = "http://172.31.38.234:8000/ios/beta/" + select_ddwj_files
+                ddwj_files_url = "http://download.sevenjuzi.top/pachong_files/ddwj/" + select_ddwj_files
                 return HttpResponseRedirect(ddwj_files_url)
             except MultiValueDictKeyError:
                 pass

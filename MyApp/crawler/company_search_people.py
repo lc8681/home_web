@@ -6,7 +6,7 @@ import csv
 from tqdm import tqdm
 from urllib.parse import quote
 import time
-from MyApp.main import path
+from MyApp.main import path, ddwj_file_path
 
 
 def ddwj_search_result():
@@ -51,7 +51,7 @@ def ddwj_search_result():
     res = requests.post(url, data, headers, cookies=Login_Data)
     check_json = json.loads(res.text)
     datalist = tqdm(check_json['data']['dataList'])
-    filename = time.strftime('/volume1/homes/code/定点挖掘/[定点挖掘:(' + input_name + ')]' + "%Y-%m-%d %H-%M-%S", time.localtime()) + '.csv'
+    filename = time.strftime(ddwj_file_path + '[定点挖掘:(' + input_name + ')]' + "%Y-%m-%d %H-%M-%S", time.localtime()) + '.csv'
     out = open(filename, 'a+', newline='')
     csv_write = csv.writer(out, dialect='excel')
     csv_header = ['更新时间', '姓名', '工作年限', '年龄', '现居住地', '期望工作地点', '学历', '毕业学校', '专业', '期望月薪', '目前状况',
