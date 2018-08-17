@@ -31,7 +31,7 @@ def login_page(request):
                     return render_to_response('login.html', {'login_false': login_false})
             except:
                 pass
-        return HttpResponseRedirect('/home_page/')
+        return HttpResponseRedirect('/login/')
 
 # 退出
 # def logout(requset):
